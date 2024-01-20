@@ -10,20 +10,35 @@ app.listen(8009,async ()=>{
     await connext();
     console.log("Mongodb connect");
     //!for example purpose only
-    // const tweet=await Tweet.create({
-    //     content:'Thired Tweet',
-    //     userEmail:'1996prabhat@gmail.com'
-    // });
-    //show all tweet 
-    //const tweet=await Tweet.find({});
-    //show only one tweet--
-    //const tweet=await Tweet.find({"content":"Thired Tweet"});
-    //console.log(tweet);
-    // const tw=await TweetRepository.get('65a9752488e21db051baaf83');
-    // console.log(tw);
 
-    const dtwt=await TweetRepository.destory('65a9752488e21db051baaf83');
-    console.log(dtwt);
+    //how to crreate tweet with comment --
+    const tweet=await TweetRepository.create({
+        content:'Thired Tweet',
+        userEmail:'1996prabhat@gmail.com',
+       comments:[{content:"nice",content:"Second Tweet "}],
+    });
+    /** 
+        after tweet add comment--------
+        tweet.comments.push({content:"First Comment nice"});
+        await tweet.save();
+    */
+   
+    /** 
+     * show all tweet 
+        const tweet=await Tweet.find({});
+    */
+    
+    /**     show only one tweet--
+            const tweet=await Tweet.find({"content":"Thired Tweet"});
+            console.log(tweet);
+            const tw=await TweetRepository.get('65a9752488e21db051baaf83');
+            console.log(tw);
+    */
+
+    //delete tweet data
+
+    // const dtwt=await TweetRepository.destory('65a9752488e21db051baaf83');
+    // console.log(dtwt);
 
 }); 
 

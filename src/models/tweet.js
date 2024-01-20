@@ -7,7 +7,15 @@ const tweetScema=new mongoose.Schema({
     },
     userEmail:{
         type:String
+    }//onetweet has multiple comments
+    ,
+    comments:[{
+        content:{
+            type:String,
+            required:true
+        }
     }
+],
 },{timestamps:true})
 
 const Tweet=mongoose.model('Tweet',tweetScema);
