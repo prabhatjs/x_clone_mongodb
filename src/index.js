@@ -1,6 +1,7 @@
 const express=require('express');
 const connext=require('./config/database')
 const TweetRepository=require('./repo/TweetRepo');
+const Comment=require('./models/comments');
 const app=express();
 //example of tweet create without request response 
 // const Tweet=require('./models/tweet')
@@ -11,12 +12,25 @@ app.listen(8009,async ()=>{
     console.log("Mongodb connect");
     //!for example purpose only
 
-    //how to crreate tweet with comment --
+    const tweet=await TweetRepository.create({
+        content:'FIrst Coment with Comment id',
+        userEmail:'1996prabhat@gmail.com'
+    });
+    console.log(tweet);
+    const comment=await Comment.create({
+        content:"New Comment",
+        userEmail:"1996prabhat@hmail.com"
+    })
+    tweet.comments.push(comment);
+    await tweet.save();
+    console.log(tweet);
+    /**how to crreate tweet with comment 
     const tweet=await TweetRepository.create({
         content:'Thired Tweet',
         userEmail:'1996prabhat@gmail.com',
        comments:[{content:"nice",content:"Second Tweet "}],
     });
+    **/
     /** 
         after tweet add comment--------
         tweet.comments.push({content:"First Comment nice"});

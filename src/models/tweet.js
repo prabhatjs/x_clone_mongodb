@@ -8,14 +8,11 @@ const tweetScema=new mongoose.Schema({
     userEmail:{
         type:String
     }//onetweet has multiple comments
-    ,
+    ,//how to refrence comments model here associate multiple collection
     comments:[{
-        content:{
-            type:String,
-            required:true
-        }
-    }
-],
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Comment'
+    }],
 },{timestamps:true})
 
 const Tweet=mongoose.model('Tweet',tweetScema);
