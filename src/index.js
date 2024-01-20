@@ -12,6 +12,10 @@ app.listen(8009,async ()=>{
     console.log("Mongodb connect");
     //!for example purpose only
 
+    const tw=await TweetRepository.getwithcomment('65abf4b70d20284b3525fbe1');
+    console.log(tw);
+
+/*
     const tweet=await TweetRepository.create({
         content:'FIrst Coment with Comment id',
         userEmail:'1996prabhat@gmail.com'
@@ -24,6 +28,8 @@ app.listen(8009,async ()=>{
     tweet.comments.push(comment);
     await tweet.save();
     console.log(tweet);
+    */
+
     /**how to crreate tweet with comment 
     const tweet=await TweetRepository.create({
         content:'Thired Tweet',

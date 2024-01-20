@@ -37,6 +37,16 @@ async function destory(id){
     }
 }
 
+//comment get 
+    async function getwithcomment(id){
+        try {
+            const returnTweet=await Tweet.findById(id).populate({path:'comments'});//comment model and its collection of array so use path
+            return returnTweet;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
 module.exports={
-    create,destory,update,get
+    create,destory,update,get,getwithcomment
 };
