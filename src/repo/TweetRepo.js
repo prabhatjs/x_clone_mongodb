@@ -40,13 +40,21 @@ async function destory(id){
 //comment get 
     async function getwithcomment(id){
         try {
-            const returnTweet=await Tweet.findById(id).populate({path:'comments'});//comment model and its collection of array so use path
+            //lean function change mongoose document object into a simple object
+            const returnTweet=await Tweet.findById(id).populate({path:'comments'}).lean();//comment model and its collection of array so use path
             return returnTweet;
         } catch (error) {
             console.log(error);
         }
     }
-
+//pagination in api---
+    async function getAll(offset,limit){//ofset use for skip ,limit use for how many item should be display
+        try {
+            const returnTweet=await Tweet.find().skip(offset).limit(limit)
+        } catch (error) {
+            
+        }
+    }
 module.exports={
     create,destory,update,get,getwithcomment
 };

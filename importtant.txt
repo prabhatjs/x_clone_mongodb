@@ -1,0 +1,44 @@
+Mongoose provides two types of triggers: 
+pre and post hooks. 
+These are functions that are executed before or after certain events occur, 
+such as saving or updating a document.
+To add a pre-save hook, you use the pre('save') middleware. T
+he following code shows an example of a pre-save hook that logs the document before it is saved:
+
+schema.pre('save', function() {
+    /do some
+  console.log(this);
+});
+
+
+why we need index in dbms
+Indexing in DBMS is a technique that uses data structures to improve the performance of a database.
+It helps to optimize the searching time of a database query, and makes database performance better
+
+Indexes support efficient execution of queries in MongoDB.
+Without indexes, MongoDB must scan every document in a collection to return query results. 
+If an appropriate index exists for a query, MongoDB uses the index to limit the number of documents it must scan.
+
+Although indexes improve query performance, adding an index has negative performance impact for write operations. 
+For collections with a high write-to-read ratio, indexes are expensive because each insert must also update any indexes.
+
+-----------------------------
+post creation limit of character
+image uploads,
+-------------------------
+any post be visbile to all those user who follows the user
+who follows you can comment on tweet
+whol follows you can like a post tweet
+wo can comment on a comment
+like on comment
+-------------------------------------
+user Profile
+Name
+foloowers count
+Bio
+Last 10 tweets from the user
+--------------------------------------
+pagination on tweet
+user auth
+
+tweet have a hashtag 

@@ -1,7 +1,9 @@
 const express=require('express');
 const connext=require('./config/database')
 const TweetRepository=require('./repo/TweetRepo');
+const HashtagRepo=require('./repo/HashtagRepo');
 const Comment=require('./models/comments');
+const tweetService=require('./service/tweet_service')
 const app=express();
 //example of tweet create without request response 
 // const Tweet=require('./models/tweet')
@@ -12,15 +14,47 @@ app.listen(8009,async ()=>{
     console.log("Mongodb connect");
     //!for example purpose only
 
-    const tw=await TweetRepository.getwithcomment('65abf4b70d20284b3525fbe1');
-    console.log(tw);
 
-/*
-    const tweet=await TweetRepository.create({
-        content:'FIrst Coment with Comment id',
-        userEmail:'1996prabhat@gmail.com'
+    const tweet=await tweetService.create({
+        content:'This is firts #dhoni #singh #mahendra'
     });
     console.log(tweet);
+    //from hashtag get name by 
+    // const response=await HashtagRepo.findByname(['Dhoni','2024']);
+    // console.log(response);
+    //bulk insert in hashtag
+    // const tags=await HashtagRepo.bulkCreate(
+    //     [
+    //         {
+    //             title:"Love",
+    //             tweets:[]
+    //         },{
+    //             title:"Dhoni",
+    //             tweets:[]
+    //         },{
+    //             title:"2024",
+    //             tweets:[]
+    //         },{
+    //             title:"scam2024",
+    //             tweets:[]
+    //         },{
+    //             title:"fighter",
+    //             tweets:[]
+    //         }
+    //     ]
+    // );
+    //get virual data 
+    // const tw=await TweetRepository.get('65abf4b70d20284b3525fbe1');
+    // console.log(tw.userInfowithtweet);
+
+
+    // const tweet=await TweetRepository.create({
+    //     content:'FIrst Coment with Comment id',
+    //     userEmail:'1996prabhat@gmail.com'
+    // });
+    // console.log(tweet);
+
+   /* 
     const comment=await Comment.create({
         content:"New Comment",
         userEmail:"1996prabhat@hmail.com"
