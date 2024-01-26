@@ -16,7 +16,7 @@ app.listen(8009,async ()=>{
 
 
     const tweet=await tweetService.create({
-        content:'This is firts #dhoni #singh #mahendra'
+        content:'This is second #dhoni #singh #mahendra #love #kanpur'
     });
     console.log(tweet);
     //from hashtag get name by 

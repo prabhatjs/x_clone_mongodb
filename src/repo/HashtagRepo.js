@@ -50,7 +50,7 @@ async function findByname(title){
     try {
         const tags=await Hashtag.find({
                 title:title
-        }).select("title -_id");
+        });
         return tags;
     } catch (error) {
         
