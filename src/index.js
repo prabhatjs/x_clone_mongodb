@@ -4,9 +4,16 @@ const TweetRepository=require('./repo/TweetRepo');
 const HashtagRepo=require('./repo/HashtagRepo');
 const Comment=require('./models/comments');
 const tweetService=require('./service/tweet_service')
+const apiRoutes=require('./routes/index');
+const bodyparser =require('body-parser');
+
+
 const app=express();
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({extended:true}));
 //example of tweet create without request response 
 // const Tweet=require('./models/tweet')
+app.use('/api',apiRoutes);
 
 app.listen(8009,async ()=>{
     console.log("server run");
@@ -15,10 +22,10 @@ app.listen(8009,async ()=>{
     //!for example purpose only
 
 
-    const tweet=await tweetService.create({
-        content:'This is second #dhoni #singh #mahendra #love #kanpur'
-    });
-    console.log(tweet);
+    // const tweet=await tweetService.create({
+    //     content:'This is second #dhoni #singh #mahendra #love #kanpur'
+    // });
+    // console.log(tweet);
     //from hashtag get name by 
     // const response=await HashtagRepo.findByname(['Dhoni','2024']);
     // console.log(response);

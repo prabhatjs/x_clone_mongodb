@@ -5,7 +5,7 @@ async function create(data){
         const content=data.content;
         //
         let tags=content.match(/#[a-zA-Z0-9_]+/g)
-        .map((tag)=>tag.substring(1))
+        .map((tag)=>tag.substring(1))//tag extract
         .map(tag=>tag.toLowerCase());
         const tweet=await TweetRepository.create(data);
         let PresentTags=await HashtagRepo.findByname(tags)//.map((tag)=>tag.title);

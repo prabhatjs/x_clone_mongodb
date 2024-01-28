@@ -6,10 +6,10 @@ const tweetScema=new mongoose.Schema({
         required:true,
         max:[300,'Tweet cannot be more the 300 characters']
     },
-    hashtags:[{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'Hashtag'
-    }],
+    // hashtags:[{
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     ref:'Hashtag'
+    // }],
 },{timestamps:true});
 
 // tweetScema.virtual("userInfowithtweet").get(function process(){
